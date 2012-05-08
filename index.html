@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Mytwitterengine : A minimalist Twitter engine for anyone who just wants to post simple text and images" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Mytwitterengine</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/myang-git/MYTwitterEngine">View on GitHub</a>
+
+          <h1 id="project_title">Mytwitterengine</h1>
+          <h2 id="project_tagline">A minimalist Twitter engine for anyone who just wants to post simple text and images</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/myang-git/MYTwitterEngine/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/myang-git/MYTwitterEngine/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>MYTwitterEngine</h1>
+
+<p>A minimalist Twitter engine for anyone who just wants to post simple text and images.</p>
+
+<h1>Install</h1>
+
+<p>To integrate the library with your iOS application, follow the steps below:</p>
+
+<pre><code>1. Clone the repository. There is already a copy of oauthcomsumer library in the repository, you can get the latest from git://github.com/jdg/oauthconsumer.git
+
+2. Drag the Xcode project package MYTwitterEngine.xcodeproj to your project navigator
+
+3. Click on your project. Choose the target. Then go to the Build Phases page. 
+   Expand "Target Dependencies" and add MYTwitterEngine to the list
+
+4. In the same Build Phases page, expand "Link Binary With Libraries", add libMYTwitterEngine.a to the list
+
+5. Switch to the Build Settings page, go down to the Search Paths section. (if you have trouble finding it, type "header search" in the search field)
+   Add the absolute path to the source code directory to the path list.
+
+6. In the same Build Settings page, enter "other linker" in the search field. Add a new value -ObjC to Other Linker Flags
+
+7. Build the project and you are good to go!
+</code></pre>
+
+<h1>How to Use</h1>
+
+<p>The library authenticates with Twitter via OAuth, therefore during the workflow you will need to pop up a web view for the user to sign in Twitter account and get the PIN.
+The following protocols need to be implemented:</p>
+
+<pre><code>- [MYTwitterEngineAuthDelegate showAuthWebViewWithURL:]   // called when a web view for showing the Twitter sign-in page is needed
+- [MYTwitterEngineAuthDelegate permissionGrantedWithKey:secret:session:created:duration:renewable:attributes:]    // called when the access token is successfully obtained
+- [MYTwitterEngineAuthDelegate permissionRejectedWithError:]    // called when authentication failed
+</code></pre>
+
+<p>Once the access token is granted, it will be stored in user defaults, and you can start using Twitter resources. Currently the library supports the following operations:</p>
+
+<pre><code>Post a text only status update
+- [MYTwitterEngine - post:]
+
+Post a status update with picture
+- [MYTwitterEngine - post:withImage:]
+</code></pre>
+
+<p>You have to implement the protocol MYTwitterEngineAuthDelegate to handle case when the API call succeeded or failed:</p>
+
+<pre><code>- [MYTwitterEngineAPIDelegate apiCall:didFinishWithResponse:]
+- [MYTwitterEngineAPIDelegate apiCall:didFailWithError:]
+</code></pre>
+
+<p>To see things in action, take a look at the example iPhone app MYTwitterEngineDemo.</p>
+
+<p>Enjoy!</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Mytwitterengine maintained by <a href="https://github.com/myang-git">myang-git</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31481605-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
