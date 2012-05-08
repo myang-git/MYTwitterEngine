@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'MYTwitterEngine' target in the 'MYTwitterEngine' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif
