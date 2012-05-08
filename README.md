@@ -19,8 +19,10 @@ To integrate the library with your iOS application, follow the steps below:
     
     5. Switch to the Build Settings page, go down to the Search Paths section. (if you have trouble finding it, type "header search" in the search field)
        Add the absolute path to the source code directory to the path list.
+       
+    6. In the same Build Settings page, enter "other linker" in the search field. Add a new value -ObjC to Other Linker Flags
 
-    6. Build the project and you are good to go!
+    7. Build the project and you are good to go!
     
 How to Use
 =========================
